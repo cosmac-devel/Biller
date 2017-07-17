@@ -9,9 +9,9 @@ using System.Text;
 
 namespace Biller
 {
-    public partial class Service1 : ServiceBase
+    public partial class Processor : ServiceBase
     {
-        public Service1()
+        public Processor()
         {
             InitializeComponent();
         }
