@@ -1,0 +1,5 @@
+C:\github\Biller\Biller\bin\Debug\Biller.exe
+C:\github\Biller\Biller\bin\Debug\Biller.pdb
+C:\github\Biller\Biller\obj\x86\Debug\Biller.exe
+C:\github\Biller\Biller\obj\x86\Debug\Biller.pdb
+C:\github\Biller\Biller\bin\Debug\Biller.exe.config

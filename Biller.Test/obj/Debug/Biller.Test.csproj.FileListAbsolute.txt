@@ -1,0 +1,7 @@
+C:\github\Biller\Biller.Test\bin\Debug\Biller.Test.dll
+C:\github\Biller\Biller.Test\bin\Debug\Biller.Test.pdb
+C:\github\Biller\Biller.Test\bin\Debug\Biller.exe
+C:\github\Biller\Biller.Test\bin\Debug\Biller.pdb
+C:\github\Biller\Biller.Test\obj\Debug\Biller.Test.csprojResolveAssemblyReference.cache
+C:\github\Biller\Biller.Test\obj\Debug\Biller.Test.dll
+C:\github\Biller\Biller.Test\obj\Debug\Biller.Test.pdb
