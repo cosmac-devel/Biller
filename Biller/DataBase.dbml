@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CMS" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ZEUS\DEVEL;Initial Catalog=CMS;Persist Security Info=True;User ID=sa" SettingsObjectName="Biller.Properties.Settings" SettingsPropertyName="CMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CSM_FA_factura" Member="CSM_FA_facturas">
+    <Type Name="CSM_FA_factura">
+      <Column Name="guid" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="consecutivo" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_cliente" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_vendedor" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_tp_precio" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_hora_factura" Type="System.String" DbType="Char(14) NOT NULL" CanBeNull="false" />
+      <Column Name="subtotal" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="descuento_al_costo" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="impuesto_ventas" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="gravado" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="exento" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="porc_exonerado" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="monto_exoneracion" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="sta" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="con_tp_factura" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="preventa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="CSM_FA_factura_CSM_FA_factura_detalle" Member="CSM_FA_factura_detalles" ThisKey="guid" OtherKey="guid_factura" Type="CSM_FA_factura_detalle" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CSM_FA_factura_detalle" Member="CSM_FA_factura_detalles">
+    <Type Name="CSM_FA_factura_detalle">
+      <Column Name="guid_factura" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="guid_articulo" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="linea" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="cantidad" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="costo" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="precio" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="descuento" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="impuesto" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="num_precio" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="guid_orden_venta" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="CSM_FA_factura_CSM_FA_factura_detalle" Member="CSM_FA_factura" ThisKey="guid_factura" OtherKey="guid" Type="CSM_FA_factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CSM_CC_TP_movimiento" Member="CSM_CC_TP_movimientos">
+    <Type Name="CSM_CC_TP_movimiento">
+      <Column Name="cod" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="des" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_estatus" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="porc" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="dia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="consecutivo" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_debcred" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_asiento" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
