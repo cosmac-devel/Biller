@@ -40,6 +40,10 @@ namespace Biller.Test
                 };
                 details.Add(detail);
             }
+            string formatString = "yyyyMMddHHmmss";
+            string sample = invoice.fecha_hora_factura;
+            DateTime dt = DateTime.ParseExact(sample, formatString, null);
+
 
             Biller.classes.Header header = new classes.Header()
             {
@@ -75,8 +79,8 @@ namespace Biller.Test
                 Serie_Comprobante = "",//27
                 Numero_Aprobacion = "3334000286041",//28
                 FormaPago = "un solo pago",//29
-                Fecha = "2017-01-16",//30
-                Hora = "16:47:03",//31
+                Fecha = dt.ToString("yyyy-MM-dd"),//30
+                Hora = String.Format("{0}:{1}:{2}", dt.Hour.ToString("00"), dt.Minute.ToString("00"), dt.Second.ToString("00")),//31
                 Dom_LugarExpide_calle = "",//32
                 Dom_LugarExpide_noExterior = "",//33
                 Dom_LugarExpide_noInterior = "",//34
@@ -144,10 +148,10 @@ namespace Biller.Test
                 NumCedulaEmisor = "113990734",
                 NumConsecutivo = "00100001010000000001",
                 TipoCFD = header.TipoCFD,
-                FechaEmisionDoc = "2017-01-16 16:47:03",
-                Es_TiqueteElectronico = "1",
-                Numero_Tienda = "001",
-                Numero_Terminal = "00001",
+                FechaEmisionDoc = header.Fecha+" "+header.Hora,
+                Es_TiqueteElectronico = "0",
+                Numero_Tienda = header.Numero_Tienda,
+                Numero_Terminal = header.Numero_Terminal,
                 Monto_TotalSerGrav = header.Monto_TotalSerGrav,
                 Monto_TotalSerExen = header.Monto_TotalSerExen,
                 Monto_TotalMerGrav = header.Monto_TotalMerGrav,
@@ -175,9 +179,6 @@ namespace Biller.Test
             procesarTextoPlanoRequest.Body.cifrasDeControl = control.ToString();
 
             string result = WSFEBuilderSoapClient.procesarTextoPlano(procesarTextoPlanoRequest.Body.usuario, procesarTextoPlanoRequest.Body.password, procesarTextoPlanoRequest.Body.id, procesarTextoPlanoRequest.Body.textoPlano, procesarTextoPlanoRequest.Body.cifrasDeControl);
-
-
-
         }
     }
 }
