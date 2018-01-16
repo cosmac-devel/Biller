@@ -145,7 +145,7 @@ namespace Biller.Test
             header.Detalles.AddRange(details);
             Biller.classes.Control control = new classes.Control()
             {
-                NumCedulaEmisor = "113990734",
+                NumCedulaEmisor = header.RFC_Emisor,
                 NumConsecutivo = "00100001010000000001",
                 TipoCFD = header.TipoCFD,
                 FechaEmisionDoc = header.Fecha+" "+header.Hora,
@@ -174,7 +174,7 @@ namespace Biller.Test
             procesarTextoPlanoRequest.Body = new GS1.procesarTextoPlanoRequestBody();
             procesarTextoPlanoRequest.Body.password = "cosmac";
             procesarTextoPlanoRequest.Body.usuario = "cosmac";
-            procesarTextoPlanoRequest.Body.id = "113990734";
+            procesarTextoPlanoRequest.Body.id = header.RFC_Emisor;
             procesarTextoPlanoRequest.Body.textoPlano = header.ToString();
             procesarTextoPlanoRequest.Body.cifrasDeControl = control.ToString();
 
