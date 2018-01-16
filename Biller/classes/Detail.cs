@@ -22,11 +22,11 @@ namespace Biller.classes
         /// <summary>
         /// [Linea_PrecioUnitario] |
         /// </summary>
-        public int Linea_PrecioUnitario { get; set; }
+        public string Linea_PrecioUnitario { get; set; }
         /// <summary>
         /// [Linea_Importe] |
         /// </summary>
-        public int Linea_Importe { get; set; }
+        public string Linea_Importe { get; set; }
         /// <summary>
         /// [Linea_Aduana_NumDoc] | 
         /// </summary>

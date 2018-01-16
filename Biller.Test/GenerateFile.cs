@@ -24,18 +24,24 @@ namespace Biller.Test
                 Biller.CSM_IV_articulo product = new Biller.classes.Product().getInvoiceDetail(item.guid_articulo);
                 Biller.classes.Detail detail = new classes.Detail()
                 {
-                    Linea_Aduana_FechaDoc = "",
-                    Linea_Aduana_Nombre = "",
-                    Linea_Aduana_NumDoc = "",
-                    Linea_Cantidad = (int)item.cantidad,
-                    Linea_CuentaPredial_Numero = "",
-                    Linea_Descripcion = product.des ,
-                    Linea_FraccionArancelaria = "",
-                    Linea_Importe = 0,
-                    Linea_Notas = "",
-                    Linea_PrecioUnitario = (int)item.precio,
-                    Linea_Unidad = "Unid",
-                    Linea_Monto_Desc = "0.00",
+
+                    Linea_Descripcion = product.des,//1
+                    Linea_Cantidad = (int)item.cantidad,//2
+                    Linea_Unidad = "Unid",//3
+                    Linea_PrecioUnitario = item.precio.ToString(),//4
+                    Linea_Importe = item.precio.ToString(),//5
+                    Linea_Aduana_NumDoc = "",//6
+                    Linea_Aduana_FechaDoc = "",//7
+                    Linea_Aduana_Nombre = "",//8
+                    Linea_CuentaPredial_Numero = "",//9
+                    Linea_FraccionArancelaria = "",//10
+                    Linea_Notas = "",//11
+                    Linea_Cod_UPC="",//12
+                    Linea_Piezas_Empaque = "",//13
+                    Linea_Cod_DUN="",//14
+                    Linea_Cod_Barras=product.codigo_barra,//15
+                    Linea_Cod_Articulo="",//16
+                    Linea_Monto_Desc = item.descuento.ToString(),//19
                     Linea_NoIdentificacion = item.guid_articulo
                 };
                 details.Add(detail);
@@ -131,7 +137,7 @@ namespace Biller.Test
                 Monto_ImpConsumo = "0.00",
                 Es_TiqueteElectronico = "0",
                 TpoDocRef = "",//167
-                TipoDocId_Emisor = "02",
+                TipoDocId_Emisor = "02",//Cédula jurídica//178
                 Numero_Terminal = "00001",
                 FechaDocRef = "",
                 Monto_Total_Descuentos = invoice.descuento_al_costo.ToString(),
@@ -146,10 +152,10 @@ namespace Biller.Test
             Biller.classes.Control control = new classes.Control()
             {
                 NumCedulaEmisor = header.RFC_Emisor,
-                NumConsecutivo = "00100001010000000001",
+                NumConsecutivo = header.Folio,
                 TipoCFD = header.TipoCFD,
                 FechaEmisionDoc = header.Fecha+" "+header.Hora,
-                Es_TiqueteElectronico = "0",
+                Es_TiqueteElectronico = header.Es_TiqueteElectronico,
                 Numero_Tienda = header.Numero_Tienda,
                 Numero_Terminal = header.Numero_Terminal,
                 Monto_TotalSerGrav = header.Monto_TotalSerGrav,
@@ -165,7 +171,7 @@ namespace Biller.Test
                 Monto_OtrosImp = header.Monto_OtrosImp,
                 Monto_IVA = header.Monto_IVA.ToString(),
                 Monto_Total = header.Monto_Total.ToString(),
-                Numeracion_FE = "0000000001",
+                Numeracion_FE = header.Folio.Substring(10, 10),
                 Serie_Comprobante = "",
                 Cantidad_Lineas = details.Count.ToString()
             };
