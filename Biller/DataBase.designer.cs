@@ -85,6 +85,14 @@ namespace Biller
 				return this.GetTable<CSM_CC_TP_movimiento>();
 			}
 		}
+		
+		public System.Data.Linq.Table<CSM_IV_articulo> CSM_IV_articulos
+		{
+			get
+			{
+				return this.GetTable<CSM_IV_articulo>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CSM_FA_factura")]
@@ -739,6 +747,339 @@ namespace Biller
 				if ((this._cod_asiento != value))
 				{
 					this._cod_asiento = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CSM_IV_articulo")]
+	public partial class CSM_IV_articulo
+	{
+		
+		private string _guid;
+		
+		private char _con_inventario;
+		
+		private string _cdl_categoria;
+		
+		private string _cod;
+		
+		private string _idc_sub_familia;
+		
+		private string _estante;
+		
+		private string _casilla;
+		
+		private string _pasillo;
+		
+		private string _cdl_medida;
+		
+		private string _cdl_empaque;
+		
+		private string _cdl_impuesto;
+		
+		private string _des;
+		
+		private string _codigo_barra;
+		
+		private string _des_fabrica;
+		
+		private string _codigo_barra_fabrica;
+		
+		private bool _sta;
+		
+		private string _codigo_des;
+		
+		private string _des_clave;
+		
+		public CSM_IV_articulo()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_guid", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string guid
+		{
+			get
+			{
+				return this._guid;
+			}
+			set
+			{
+				if ((this._guid != value))
+				{
+					this._guid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_con_inventario", DbType="Char(1) NOT NULL")]
+		public char con_inventario
+		{
+			get
+			{
+				return this._con_inventario;
+			}
+			set
+			{
+				if ((this._con_inventario != value))
+				{
+					this._con_inventario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cdl_categoria", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string cdl_categoria
+		{
+			get
+			{
+				return this._cdl_categoria;
+			}
+			set
+			{
+				if ((this._cdl_categoria != value))
+				{
+					this._cdl_categoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cod", DbType="Char(4) NOT NULL", CanBeNull=false)]
+		public string cod
+		{
+			get
+			{
+				return this._cod;
+			}
+			set
+			{
+				if ((this._cod != value))
+				{
+					this._cod = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idc_sub_familia", DbType="Char(3) NOT NULL", CanBeNull=false)]
+		public string idc_sub_familia
+		{
+			get
+			{
+				return this._idc_sub_familia;
+			}
+			set
+			{
+				if ((this._idc_sub_familia != value))
+				{
+					this._idc_sub_familia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estante", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string estante
+		{
+			get
+			{
+				return this._estante;
+			}
+			set
+			{
+				if ((this._estante != value))
+				{
+					this._estante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_casilla", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string casilla
+		{
+			get
+			{
+				return this._casilla;
+			}
+			set
+			{
+				if ((this._casilla != value))
+				{
+					this._casilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pasillo", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string pasillo
+		{
+			get
+			{
+				return this._pasillo;
+			}
+			set
+			{
+				if ((this._pasillo != value))
+				{
+					this._pasillo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cdl_medida", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string cdl_medida
+		{
+			get
+			{
+				return this._cdl_medida;
+			}
+			set
+			{
+				if ((this._cdl_medida != value))
+				{
+					this._cdl_medida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cdl_empaque", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string cdl_empaque
+		{
+			get
+			{
+				return this._cdl_empaque;
+			}
+			set
+			{
+				if ((this._cdl_empaque != value))
+				{
+					this._cdl_empaque = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cdl_impuesto", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string cdl_impuesto
+		{
+			get
+			{
+				return this._cdl_impuesto;
+			}
+			set
+			{
+				if ((this._cdl_impuesto != value))
+				{
+					this._cdl_impuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_des", DbType="VarChar(70) NOT NULL", CanBeNull=false)]
+		public string des
+		{
+			get
+			{
+				return this._des;
+			}
+			set
+			{
+				if ((this._des != value))
+				{
+					this._des = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_barra", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string codigo_barra
+		{
+			get
+			{
+				return this._codigo_barra;
+			}
+			set
+			{
+				if ((this._codigo_barra != value))
+				{
+					this._codigo_barra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_des_fabrica", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string des_fabrica
+		{
+			get
+			{
+				return this._des_fabrica;
+			}
+			set
+			{
+				if ((this._des_fabrica != value))
+				{
+					this._des_fabrica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_barra_fabrica", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string codigo_barra_fabrica
+		{
+			get
+			{
+				return this._codigo_barra_fabrica;
+			}
+			set
+			{
+				if ((this._codigo_barra_fabrica != value))
+				{
+					this._codigo_barra_fabrica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sta", DbType="Bit NOT NULL")]
+		public bool sta
+		{
+			get
+			{
+				return this._sta;
+			}
+			set
+			{
+				if ((this._sta != value))
+				{
+					this._sta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigo_des", DbType="VarChar(100)")]
+		public string codigo_des
+		{
+			get
+			{
+				return this._codigo_des;
+			}
+			set
+			{
+				if ((this._codigo_des != value))
+				{
+					this._codigo_des = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_des_clave", DbType="VarChar(100)")]
+		public string des_clave
+		{
+			get
+			{
+				return this._des_clave;
+			}
+			set
+			{
+				if ((this._des_clave != value))
+				{
+					this._des_clave = value;
 				}
 			}
 		}

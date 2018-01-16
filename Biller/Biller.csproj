@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Control.cs" />
     <Compile Include="classes\Detail.cs" />
+    <Compile Include="classes\Document.cs" />
     <Compile Include="classes\Header.cs" />
+    <Compile Include="classes\Product.cs" />
     <Compile Include="DataBase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,7 +87,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\GS1.Service\WSFEBuilder.wsdl" />
+    <None Include="Service References\GS1.Service\Biller.GS1.Service.getVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GS1.Service\Biller.GS1.Service.procesarTextoPlanoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GS1.Service\Biller.GS1.Service.VerificaEstadoFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GS1.Service\WSFEBuilder1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -144,10 +144,10 @@
   </wsdl:binding>
   <wsdl:service name="WSFEBuilder">
     <wsdl:port name="WSFEBuilderSoap" binding="tns:WSFEBuilderSoap">
-      <soap:address location="http://avdtst.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
+      <soap:address location="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
     </wsdl:port>
     <wsdl:port name="WSFEBuilderSoap12" binding="tns:WSFEBuilderSoap12">
-      <soap12:address location="http://avdtst.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
+      <soap12:address location="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

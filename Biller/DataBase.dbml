@@ -49,4 +49,26 @@
       <Column Name="cod_asiento" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.CSM_IV_articulo" Member="CSM_IV_articulos">
+    <Type Name="CSM_IV_articulo">
+      <Column Name="guid" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="con_inventario" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cdl_categoria" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="cod" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="idc_sub_familia" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="estante" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="casilla" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="pasillo" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="cdl_medida" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="cdl_empaque" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="cdl_impuesto" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="des" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_barra" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="des_fabrica" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_barra_fabrica" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="sta" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_des" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="des_clave" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

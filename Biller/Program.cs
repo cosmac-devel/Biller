@@ -13,6 +13,8 @@ namespace Biller
         /// </summary>
         static void Main()
         {
+
+            //hola mundo
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
 			{ 

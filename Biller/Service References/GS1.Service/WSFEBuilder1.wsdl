@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ekomercio.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ekomercio.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ekomercio.com/">
+      <s:element name="getVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="getVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaEstadoFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folios" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaEstadoFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificaEstadoFacturaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="procesarTextoPlano">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="textoPlano" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cifrasDeControl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="procesarTextoPlanoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="procesarTextoPlanoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:getVersion" />
+  </wsdl:message>
+  <wsdl:message name="getVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:getVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaEstadoFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaEstadoFactura" />
+  </wsdl:message>
+  <wsdl:message name="VerificaEstadoFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaEstadoFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="procesarTextoPlanoSoapIn">
+    <wsdl:part name="parameters" element="tns:procesarTextoPlano" />
+  </wsdl:message>
+  <wsdl:message name="procesarTextoPlanoSoapOut">
+    <wsdl:part name="parameters" element="tns:procesarTextoPlanoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSFEBuilderSoap">
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionSoapIn" />
+      <wsdl:output message="tns:getVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaEstadoFactura">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el estado de la factura validado por Hacienda, los parámetros son: USUARIO: Usuario asignado para ingresar al WebService WSFEBuilder. PASSWORD: Contraseña asignada para ingresar al WebService WSFEBuilder. FOLIO: Consecutivo de la factura que se quiere consultar, separar con un | si son más de uno.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaEstadoFacturaSoapIn" />
+      <wsdl:output message="tns:VerificaEstadoFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="procesarTextoPlano">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera una factura electrónica con base en el texto plano contenidoen la variable 'textoPlano'. Los parámetros son los siguientes: usuario: Usuario asignado para ingresar al WebService WSFEBuilder.password: Contraseña asignada para ingresar al WebService WSFEBuilder.id: Identificación fiscal de la empresa emisora del documento (RFC, NIT o cédula jurídica).textoPlano: Texto plano según layout 3.70 de EdixCFD.cifrasDeControl: Cifras de control asociadas al texto plano conforme a especificaciones. archivoXML: Factura firmada xml</wsdl:documentation>
+      <wsdl:input message="tns:procesarTextoPlanoSoapIn" />
+      <wsdl:output message="tns:procesarTextoPlanoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSFEBuilderSoap" type="tns:WSFEBuilderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="http://www.ekomercio.com/getVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaEstadoFactura">
+      <soap:operation soapAction="http://www.ekomercio.com/VerificaEstadoFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarTextoPlano">
+      <soap:operation soapAction="http://www.ekomercio.com/procesarTextoPlano" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFEBuilderSoap12" type="tns:WSFEBuilderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVersion">
+      <soap12:operation soapAction="http://www.ekomercio.com/getVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaEstadoFactura">
+      <soap12:operation soapAction="http://www.ekomercio.com/VerificaEstadoFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarTextoPlano">
+      <soap12:operation soapAction="http://www.ekomercio.com/procesarTextoPlano" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSFEBuilder">
+    <wsdl:port name="WSFEBuilderSoap" binding="tns:WSFEBuilderSoap">
+      <soap:address location="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFEBuilderSoap12" binding="tns:WSFEBuilderSoap12">
+      <soap12:address location="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

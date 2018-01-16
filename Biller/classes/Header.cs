@@ -14,7 +14,7 @@ namespace Biller.classes
         /// números. 20 dígitos máximo.
         /// Obtenido
         /// </summary>
-        public int Folio { get; set; }
+        public string Folio { get; set; }
 
         /// <summary>
         /// [Nombre_Emisor] | 
@@ -110,7 +110,7 @@ namespace Biller.classes
         /// {Emisor;Telefono;NumTelefono}
         /// Solo número de telefono sin guiones, número de interno
         /// </summary>
-        public int Tel_Emisor { get; set; }
+        public string Tel_Emisor { get; set; }
 
         /// <summary>
         /// [Dom_Sucursal_calle] | 
@@ -316,7 +316,7 @@ namespace Biller.classes
         /// identificaciones extranjeras.
         /// Solo números,k alfatanumero en extrangeros
         /// </summary>
-        public int RFC_Receptor { get; set; }
+        public string RFC_Receptor { get; set; }
 
         /// <summary>
         /// [Dom_Receptor_calle] |
@@ -458,7 +458,7 @@ namespace Biller.classes
         public string Dom_Tienda_calle { get; set; }
 
         public string Dom_Tienda_noExterior { get; set; }
-        public string Dom_Tienda_noInterio { get; set; }
+        public string Dom_Tienda_noInterior { get; set; }
         public string Dom_Tienda_colonia { get; set; }
         public string Dom_Tienda_localidad { get; set; }
         public string Dom_Tienda_referencia { get; set; }
@@ -540,6 +540,7 @@ namespace Biller.classes
         public string Misc41 { get; set; }
         public string Tipo_Receptor { get; set; }
         public string Fax_Emisor { get; set; }
+        public string Email_Emisor { get; set; }
         public string Monto_TotalSerGrav { get; set; }
         public string Monto_TotalSerExen { get; set; }
         public string Monto_TotalMerGrav { get; set; }
@@ -586,38 +587,38 @@ namespace Biller.classes
             foreach (var item in this.Detalles)
             {
                 details += string.Join("|",
-                    item.Linea_Descripcion,
-                    item.Linea_Cantidad,
-                    item.Linea_Unidad,
-                    item.Linea_PrecioUnitario,
-                    item.Linea_Importe,
-                    item.Linea_Aduana_NumDoc,
-                    item.Linea_Aduana_FechaDoc,
-                    item.Linea_Aduana_Nombre,
-                    item.Linea_CuentaPredial_Numero,
-                    item.Linea_FraccionArancelaria,
-                    item.Linea_Notas,
-                    item.Linea_Cod_UPC,
-                    item.Linea_Piezas_Empaque,
-                    item.Linea_Cod_DUN,
-                    item.Linea_Cod_Barras,
-                    item.Linea_Cod_Articulo,
-                    item.Linea_Cod_Desc,
-                    item.Linea_Porc_Desc,
-                    item.Linea_Monto_Desc,
-                    item.Linea_PrecioUnitario_SinDesc,
-                    item.Linea_Cant_Empaques_Fac,
-                    item.Linea_Cant_Empaques_Emb,
-                    item.Linea_Porc_IVA,
-                    item.Linea_Monto_IVA,
-                    item.Linea_Porc_IEPS,
-                    item.Linea_Monto_IEPS,
-                    item.Linea_PrecioUnitario_ConImp,
-                    item.Linea_Importe_ConImp,
-                    item.Linea_Frontera,
-                    item.Línea_PaisOrigen,
-                    item.Linea_EAN_Aduana,
-                    item.Linea_Misc01,
+                    item.Linea_Descripcion,//1
+                    item.Linea_Cantidad,//2
+                    item.Linea_Unidad,//3
+                    item.Linea_PrecioUnitario,//4
+                    item.Linea_Importe,//5
+                    item.Linea_Aduana_NumDoc,//6
+                    item.Linea_Aduana_FechaDoc,//7
+                    item.Linea_Aduana_Nombre,//8
+                    item.Linea_CuentaPredial_Numero,//9
+                    item.Linea_FraccionArancelaria,//10
+                    item.Linea_Notas,//11
+                    item.Linea_Cod_UPC,//12
+                    item.Linea_Piezas_Empaque,//13
+                    item.Linea_Cod_DUN,//14
+                    item.Linea_Cod_Barras,//15
+                    item.Linea_Cod_Articulo,//16
+                    item.Linea_Cod_Desc,//17
+                    item.Linea_Porc_Desc,//18
+                    item.Linea_Monto_Desc,//19
+                    item.Linea_PrecioUnitario_SinDesc,//20
+                    item.Linea_Cant_Empaques_Fac,//21
+                    item.Linea_Cant_Empaques_Emb,//22
+                    item.Linea_Porc_IVA,//23
+                    item.Linea_Monto_IVA,//24
+                    item.Linea_Porc_IEPS,//25
+                    item.Linea_Monto_IEPS,//26
+                    item.Linea_PrecioUnitario_ConImp,//27
+                    item.Linea_Importe_ConImp,//28
+                    item.Linea_Frontera,//29
+                    item.Línea_PaisOrigen,//30
+                    item.Linea_EAN_Aduana,//31
+                    item.Linea_Misc01,//32
                     item.Linea_Misc02,
                     item.Linea_Misc03,
                     item.Linea_Misc04,
@@ -666,213 +667,225 @@ namespace Biller.classes
                     item.Linea_Misc47,
                     item.Linea_Misc48,
                     item.Linea_Misc49,
-                    item.Linea_MotivoDescuento,
-                    item.Linea_MedicionSecundaria,
-                    item.Linea_TipoIdent_Adicional,
-                    item.Linea_DescripIdioma,
-                    item.Linea_Cant_Adicional,
-                    item.Linea_Cant_Adicional_Tipo,
-                    item.Linea_Tipo_Referencia,
-                    item.Linea_Calif_NumIdentidad,
-                    item.Linea_TipoEmpaquetado,
-                    item.Linea_Metodo_Pago,
-                    item.Linea_Numero_Lote,
-                    item.Linea_Fecha_ProdLote,
-                    item.Linea_Ind_CargoDescuento,
-                    item.Linea_Inf_CargoDescuento,
-                    item.Linea_Secuencia_Calculo,
-                    item.Linea_Tipo_ServiciosEsp,
-                    item.Linea_Ident_Impuesto,
-                    item.Linea_Cod_EAN,
-                    item.Linea_NoIdentificacion
-
-                    ) + (char)13;
+                    item.Linea_MotivoDescuento,//81
+                    item.Linea_MedicionSecundaria,//82
+                    item.Linea_TipoIdent_Adicional,//83
+                    item.Linea_DescripIdioma,//84
+                    item.Linea_Cant_Adicional,//85
+                    item.Linea_Cant_Adicional_Tipo,//86
+                    item.Linea_Tipo_Referencia,//87
+                    item.Linea_Calif_NumIdentidad,//88
+                    item.Linea_TipoEmpaquetado,//89
+                    item.Linea_Metodo_Pago,//90
+                    item.Linea_Numero_Lote,//91
+                    item.Linea_Fecha_ProdLote,//92
+                    item.Linea_Ind_CargoDescuento,//93
+                    item.Linea_Inf_CargoDescuento,//94
+                    item.Linea_Secuencia_Calculo,//95
+                    item.Linea_Tipo_ServiciosEsp,//96
+                    item.Linea_Ident_Impuesto,//97
+                    item.Linea_Cod_EAN,//98
+                    item.Linea_NoIdentificacion//99
+                    ) + Environment.NewLine;
             }
 
             string header = "~" + string.Join("|",
-                                this.Folio,
-                                this.Nombre_Emisor,
-                                this.RFC_Emisor,
-                                this.Dom_Emisor_calle,
-                                this.Dom_Emisor_noExterior,
-                                this.Dom_Emisor_noInterior,
-                                this.Dom_Emisor_colonia,
-                                this.Dom_Emisor_localidad,
-                                this.Dom_Emisor_referencia,
-                                this.Dom_Emisor_municipio,
-                                this.Dom_Emisor_estado,
-                                this.Dom_Emisor_pais,
-                                this.Dom_Emisor_codigoPostal,
-                                this.Tel_Emisor,
-                                this.Dom_Sucursal_calle,
-                                this.Dom_Sucursal_noExterior,
-                                this.Dom_Sucursal_noInterior,
-                                this.Dom_Sucursal_colonia,
-                                this.Dom_Sucursal_localidad,
-                                this.Dom_Sucursal_referencia,
-                                this.Dom_Sucursal_municipio,
-                                this.Dom_Sucursal_estado,
-                                this.Dom_Sucursal_pais,
-                                this.Dom_Sucursal_codigoPostal,
-                                this.Tel_Sucursal,
-                                this.Version,
-                                this.Serie_Comprobante,
-                                this.Numero_Aprobacion,
-                                this.FormaPago,
-                                this.Fecha,
-                                this.Hora,
-                                this.Dom_LugarExpide_calle,
-                                this.Dom_LugarExpide_noExterior,
-                                this.Dom_LugarExpide_noInterior,
-                                this.Dom_LugarExpide_colonia,
-                                this.Dom_LugarExpide_localidad,
-                                this.Dom_LugarExpide_referencia,
-                                this.Dom_LugarExpide_municipio,
-                                this.Dom_LugarExpide_estado,
-                                this.Dom_LugarExpide_pais,
-                                this.Dom_LugarExpide_codigoPostal,
-                                this.Nombre_Receptor,
-                                this.RFC_Receptor,
-                                this.Dom_Receptor_calle,
-                                this.Dom_Receptor_noExterior,
-                                this.Dom_Receptor_noInterior,
-                                this.Dom_Receptor_colonia,
-                                this.Dom_Receptor_localidad,
-                                this.Dom_Receptor_referencia,
-                                this.Dom_Receptor_municipio,
-                                this.Dom_Receptor_estado,
-                                this.Dom_Receptor_pais,
-                                this.Dom_Receptor_codigoPostal,
-                                this.Monto_SubTotal,
-                                this.Monto_IVA,
-                                this.Monto_Total,
-                                this.Estado,
-                                this.TipoCFD,
-                                this.Notas,
-                                this.Notas02,
-                                this.Notas03,
-                                this.Dom_Tienda_noInterio,
-                                this.Dom_Tienda_colonia,
-                                this.Dom_Tienda_localidad,
-                                this.Dom_Tienda_referencia,
-                                this.Dom_Tienda_municipio,
-                                this.Dom_Tienda_estado,
-                                this.Dom_Tienda_pais,
-                                this.Dom_Tienda_codigoPostal,
-                                this.RFC_Tienda,
-                                this.Cod_Moneda,
-                                this.Dias_Pago,
-                                this.Porc_Desc_ProntoPago,
-                                this.Porc_Desc_ProntoPago,
-                                this.Monto_Desc_ProntoPago,
-                                this.Cod_Descuento,
-                                this.Porc_Descuento,
-                                this.Monto_Descuento,
-                                this.Cantidad_LineasFactura,
-                                this.Fecha_Vencimiento,
-                                this.Cod_Zona,
-                                this.Numero_Receptor,
-                                this.Cod_Vendedor,
-                                this.Nombre_Vendedor,
-                                this.Via_Embarque,
-                                this.Condiciones_Pago,
-                                this.Numero_Pedido,
-                                this.Fecha_Pedido,
-                                this.Letras_Monto_Total,
-                                this.Cantidad_unidades,
-                                this.Cantidad_empaques,
-                                this.EAN_Receptor,
-                                this.EAN_LugarExpide,
-                                this.Tel_Receptor,
-                                this.NombreCom_Emisor,
-                                this.Numero_Emisor,
-                                this.Monto_OtrosImp,
-                                this.Monto_SubTotal_ApIVA,
-                                this.Transportista,
-                                this.Numero_Solicitud,
-                                this.Desc_Moneda,
-                                this.Misc01,
-                                this.Misc02,
-                                this.Misc03,
-                                this.Misc04,
-                                this.Misc05,
-                                this.Misc06,
-                                this.Misc07,
-                                this.Misc08,
-                                this.Misc09,
-                                this.Misc10,
-                                this.Misc11,
-                                this.Misc12,
-                                this.Misc13,
-                                this.Misc14,
-                                this.Misc15,
-                                this.Misc16,
-                                this.Misc17,
-                                this.Misc18,
-                                this.Misc19,
-                                this.Misc20,
-                                this.Misc21,
-                                this.Misc22,
-                                this.Misc23,
-                                this.Misc24,
-                                this.Misc25,
-                                this.Misc26,
-                                this.Misc27,
-                                this.Misc28,
-                                this.Misc29,
-                                this.Misc30,
-                                this.Misc31,
-                                this.Misc32,
-                                this.Misc33,
-                                this.Misc34,
-                                this.Misc35,
-                                this.Misc36,
-                                this.Misc37,
-                                this.Misc38,
-                                this.Misc39,
-                                this.Misc40,
-                                this.Misc41,
-                                this.Tipo_Receptor,
-                                this.Fax_Emisor,
-                                this.Monto_TotalSerGrav,
-                                this.Monto_TotalSerExen,
-                                this.Monto_TotalMerGrav,
-                                this.Monto_TotalMerExen,
-                                this.FechaResolucion,
-                                this.RazonReferencia,
-                                this.Porc_IVA,
-                                this.Monto_ImpConsumo,
-                                this.Es_TiqueteElectronico,
-                                this.Delivery_Date,
-                                this.TpoDocRef,
-                                this.Telefono_RcpExtranjero,
-                                this.Num_contrarecibo,
-                                this.Fecha_Num_contrarecibo,
-                                this.Contacto_Compras,
-                                this.Customs_gln,
-                                this.Alternate_identification_gln,
-                                this.Nombre_Aduana,
-                                this.Nombre_Aduana_Ciudad,
-                                this.Email_Receptor,
-                                this.Tasa_Divisa,
-                                this.TipoDocId_Emisor,
-                                this.TipoDocId_Receptor,
-                                this.NombreCom_Receptor,
-                                this.Indicador_Cargo_Descuento,
-                                this.Situacion,
-                                this.Numero_Terminal,
-                                this.Porcentaje_no_aplicado,
-                                this.FechaDocRef,
-                                this.Monto_Total_Descuentos,
-                                this.Monto_TotalVentaNeta,
-                                this.Ano_Aprobacion,
-                                this.Motivo_Descuento,
-                                this.Metodo_Pago,
-                                this.Efecto_Comprobante,
-                                this.Monto_TotalGravado,
-                                this.Monto_TotalExento);
+                                this.Folio,//1
+                                this.Nombre_Emisor,//2
+                                this.RFC_Emisor,//3
+                                this.Dom_Emisor_calle,//4
+                                this.Dom_Emisor_noExterior,//5
+                                this.Dom_Emisor_noInterior,//6
+                                this.Dom_Emisor_colonia,//7
+                                this.Dom_Emisor_localidad,//8
+                                this.Dom_Emisor_referencia,//9
+                                this.Dom_Emisor_municipio,//10
+                                this.Dom_Emisor_estado,//11
+                                this.Dom_Emisor_pais,//12
+                                this.Dom_Emisor_codigoPostal,//13
+                                this.Tel_Emisor,//14
+                                this.Dom_Sucursal_calle,//15
+                                this.Dom_Sucursal_noExterior,//16
+                                this.Dom_Sucursal_noInterior,//17
+                                this.Dom_Sucursal_colonia,//18
+                                this.Dom_Sucursal_localidad,//19
+                                this.Dom_Sucursal_referencia,//20
+                                this.Dom_Sucursal_municipio,//21
+                                this.Dom_Sucursal_estado,//22
+                                this.Dom_Sucursal_pais,//23
+                                this.Dom_Sucursal_codigoPostal,//24
+                                this.Tel_Sucursal,//25
+                                this.Version,//26
+                                this.Serie_Comprobante,//27
+                                this.Numero_Aprobacion,//28
+                                this.FormaPago,//19
+                                this.Fecha,//30
+                                this.Hora,//31
+                                this.Dom_LugarExpide_calle,//32
+                                this.Dom_LugarExpide_noExterior,//33
+                                this.Dom_LugarExpide_noInterior,//34
+                                this.Dom_LugarExpide_colonia,//35
+                                this.Dom_LugarExpide_localidad,//36
+                                this.Dom_LugarExpide_referencia,//37
+                                this.Dom_LugarExpide_municipio,//38
+                                this.Dom_LugarExpide_estado,//39
+                                this.Dom_LugarExpide_pais,//40
+                                this.Dom_LugarExpide_codigoPostal,//41
+                                this.Nombre_Receptor,//42
+                                this.RFC_Receptor,//43
+                                this.Dom_Receptor_calle,//44
+                                this.Dom_Receptor_noExterior,//45
+                                this.Dom_Receptor_noInterior,//46
+                                this.Dom_Receptor_colonia,//47
+                                this.Dom_Receptor_localidad,//48
+                                this.Dom_Receptor_referencia,//49
+                                this.Dom_Receptor_municipio,//50
+                                this.Dom_Receptor_estado,//51
+                                this.Dom_Receptor_pais,//52
+                                this.Dom_Receptor_codigoPostal,//53
+                                this.Monto_SubTotal,//54
+                                this.Monto_IVA,//55
+                                this.Monto_Total,//56
+                                this.Estado,//57
+                                this.TipoCFD,//58
+                                this.Notas,//59
+                                this.Notas02,//60
+                                this.Notas03,//61
+                                this.TradingPartner_Prov,//62
+                                this.Calif_TradingPartner_Prov,//63
+                                this.Numero_Factura,//64
+                                this.Numero_OrdenCompra,//65
+                                this.Fecha_OrdenCompra,//66
+                                this.Numero_Proveedor,//67
+                                this.EAN_Tienda,//68
+                                this.EAN_Tienda,//69
+                                this.Numero_Tienda,//70
+                                this.Nombre_Tienda,//71
+                                this.Dom_Tienda_calle,//72
+                                this.Dom_Tienda_noExterior,//73
+                                this.Dom_Tienda_noInterior,//74
+                                this.Dom_Tienda_colonia,//75
+                                this.Dom_Tienda_localidad,//76
+                                this.Dom_Tienda_referencia,//77                                this.Dom_Tienda_municipio,//76
+                                this.Dom_Tienda_municipio,//78
+                                this.Dom_Tienda_estado,//79
+                                this.Dom_Tienda_pais,//80
+                                this.Dom_Tienda_codigoPostal,//81
+                                this.RFC_Tienda,//82
+                                this.Cod_Moneda,//83
+                                this.Dias_Pago,//84
+                                this.Porc_Desc_ProntoPago,//85
+                                this.Monto_Desc_ProntoPago,//86
+                                this.Cod_Descuento,//87
+                                this.Porc_Descuento,//88
+                                this.Monto_Descuento,//89
+                                this.Cantidad_LineasFactura,//90
+                                this.Fecha_Vencimiento,//91
+                                this.Cod_Zona,//92
+                                this.Numero_Receptor,//93
+                                this.Cod_Vendedor,//94
+                                this.Nombre_Vendedor,//95
+                                this.Via_Embarque,//96
+                                this.Condiciones_Pago,//97
+                                this.Numero_Pedido,//98
+                                this.Fecha_Pedido,//99
+                                this.Letras_Monto_Total,//100
+                                this.Cantidad_unidades,//101
+                                this.Cantidad_empaques,//102
+                                this.EAN_Receptor,//103
+                                this.EAN_LugarExpide,//104
+                                this.Tel_Receptor,//105
+                                this.NombreCom_Emisor,//106
+                                this.Numero_Emisor,//107
+                                this.Monto_OtrosImp,//108
+                                this.Monto_SubTotal_ApIVA,//109
+                                this.Transportista,//110
+                                this.Numero_Solicitud,//111
+                                this.Desc_Moneda,//112
+                                this.Misc01,//113
+                                this.Misc02,//114
+                                this.Misc03,//115
+                                this.Misc04,//116
+                                this.Misc05,//117
+                                this.Misc06,//118
+                                this.Misc07,//119
+                                this.Misc08,//120
+                                this.Misc09,//121
+                                this.Misc10,//122
+                                this.Misc11,//123
+                                this.Misc12,//124
+                                this.Misc13,//125
+                                this.Misc14,//126
+                                this.Misc15,//127
+                                this.Misc16,//128
+                                this.Misc17,//129
+                                this.Misc18,//130
+                                this.Misc19,//131
+                                this.Misc20,//132
+                                this.Misc21,//133
+                                this.Misc22,//134
+                                this.Misc23,//135
+                                this.Misc24,//136
+                                this.Misc25,//137
+                                this.Misc26,//138
+                                this.Misc27,//139
+                                this.Misc28,//140
+                                this.Misc29,//141
+                                this.Misc30,//142
+                                this.Misc31,//143
+                                this.Misc32,//144
+                                this.Misc33,//145
+                                this.Misc34,//146
+                                this.Misc35,//147
+                                this.Misc36,//148
+                                this.Misc37,//149
+                                this.Misc38,//150
+                                this.Misc39,//151
+                                this.Misc40,//152
+                                this.Misc41,//153
+                                this.Tipo_Receptor,//154
+                                this.Fax_Emisor,//155
+                                this.Email_Emisor,//156
+                                this.Monto_TotalSerGrav,//157
+                                this.Monto_TotalSerExen,//158
+                                this.Monto_TotalMerGrav,//159
+                                this.Monto_TotalMerExen,//160
+                                this.FechaResolucion,//161
+                                this.RazonReferencia,//162
+                                this.Porc_IVA,//163
+                                this.Monto_ImpConsumo,//164
+                                this.Es_TiqueteElectronico,//165
+                                this.Delivery_Date,//166
+                                this.TpoDocRef,//167
+                                this.Telefono_RcpExtranjero,//168
+                                this.Num_contrarecibo,//169
+                                this.Fecha_Num_contrarecibo,//170
+                                this.Contacto_Compras,//171
+                                this.Customs_gln,//172
+                                this.Alternate_identification_gln,//173
+                                this.Nombre_Aduana,//174
+                                this.Nombre_Aduana_Ciudad,//175
+                                this.Email_Receptor,//176
+                                this.Tasa_Divisa,//177
+                                this.TipoDocId_Emisor,//178
+                                this.TipoDocId_Receptor,//179
+                                this.NombreCom_Receptor,//180
+                                this.Indicador_Cargo_Descuento,//181
+                                this.Situacion,//182
+                                this.Numero_Terminal,//183
+                                this.Porcentaje_no_aplicado,//184
+                                this.FechaDocRef,//185
+                                this.Monto_Total_Descuentos,//186
+                                this.Monto_TotalVentaNeta,//187
+                                this.Ano_Aprobacion,//188
+                                this.Motivo_Descuento,//189
+                                this.Metodo_Pago,//190
+                                this.Efecto_Comprobante,//191
+                                this.Monto_TotalGravado,//192
+                                this.Monto_TotalExento//193
+                                );
 
-            return header + (char)13 + details;
+            return header + Environment.NewLine + details;
         }
 
     }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e79b6b69-f434-410b-82e5-2d496a95d847" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b937da3-6ae8-497b-8ed2-7b0794218b57" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
     <GenerateInternalTypes>false</GenerateInternalTypes>
-    <GenerateMessageContracts>true</GenerateMessageContracts>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
@@ -21,7 +21,7 @@
     <MetadataSource Address="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSFEBuilder1.wsdl" MetadataType="Wsdl" ID="673085a8-ec2b-49c5-a8dc-04ed4f8b7173" SourceId="1" SourceUrl="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx?WSDL" />
+    <MetadataFile FileName="WSFEBuilder.wsdl" MetadataType="Wsdl" ID="f3155de1-e174-4e35-a08b-02800e19d035" SourceId="1" SourceUrl="http://avdtest.cloudapp.net/WSFEBuilder-COSMAC/WSFEBuilder.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
