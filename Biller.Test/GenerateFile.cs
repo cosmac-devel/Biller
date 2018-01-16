@@ -40,10 +40,10 @@ namespace Biller.Test
                 };
                 details.Add(detail);
             }
+
             string formatString = "yyyyMMddHHmmss";
             string sample = invoice.fecha_hora_factura;
             DateTime dt = DateTime.ParseExact(sample, formatString, null);
-
 
             Biller.classes.Header header = new classes.Header()
             {
